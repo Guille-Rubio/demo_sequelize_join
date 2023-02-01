@@ -1,6 +1,5 @@
 const { db } = require('../config/sqlConnection');
 const { DataTypes } = require('sequelize');
-const Autores = require('./autores');
 
 const Entradas = db.define("Entradas", {
     idEntry: {
@@ -12,10 +11,6 @@ const Entradas = db.define("Entradas", {
     idAuthor: {
         field: "id_author",
         type: DataTypes.UUID,
-        /* references: {//Reference for join
-            model: "Autores",
-            key: "id_author"
-        } */
     },
     title: {
         field: "title",
