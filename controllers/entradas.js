@@ -1,5 +1,5 @@
 const Entradas = require('../schemas/entradas');
-const { populateEntradas } = require('../seeds/seed');
+const {populateEntradas} = require('../seeds/seed');
 
 
 const obtenerEntradas = async (req, res) => {
