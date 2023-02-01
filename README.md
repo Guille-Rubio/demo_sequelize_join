@@ -1,4 +1,4 @@
-## Sequelize demo and join demo
+## Sequelize and join demo
 
 You can import the `postman_requests.json` file to Postman to make your http requests. 
 
