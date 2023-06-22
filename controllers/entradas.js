@@ -1,5 +1,5 @@
 const Entradas = require('../schemas/entradas');
-const {populateEntradas} = require('../seeds/seed');
+const { populateEntradas } = require('../seeds/seed');
 
 
 const obtenerEntradas = async (req, res) => {
@@ -8,8 +8,8 @@ const obtenerEntradas = async (req, res) => {
 };
 
 const obtenerEntradaPorId = async (req, res) => {
-    const { idEntrada } = req.body;
-    const entrada = await Entradas.findAll({ where: { idEntrada } })
+    const { id } = req.params;
+    const entrada = await Entradas.findAll({ where: { idEntry: id } })
     res.status(200).json(entrada);
 };
 

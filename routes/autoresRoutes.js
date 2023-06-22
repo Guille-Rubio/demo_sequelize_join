@@ -11,7 +11,7 @@ autoresRouter.delete('/delete-one',autoresControllers.borrarAutor );
 autoresRouter.delete('/delete-all', autoresControllers.borrarTodosLosAutores);
 autoresRouter.get('/all-authors-entries', autoresControllers.obtenerUnAutorYTodasSusEntradas);
 autoresRouter.get('/all-authors-all-entries', autoresControllers.obtenerTodosLosAutoresConSusEntradas);
-autoresRouter.get('/populate-autores',autoresControllers.poblarTablaAutores );
+autoresRouter.post('/populate-autores',autoresControllers.poblarTablaAutores );
 
 
 module.exports = autoresRouter;

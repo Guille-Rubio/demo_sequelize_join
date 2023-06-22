@@ -9,7 +9,7 @@
 		{
 			"name": "populate autores",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:3000/autores/populate-autores",
@@ -29,7 +29,7 @@
 		{
 			"name": "populate entradas",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:3000/entradas/populate-entradas",
@@ -104,7 +104,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/entradas/one",
+					"raw": "http://localhost:3000/entradas/one/147f1cd1-10d4-11ee-863f-69ee5a85c209",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -112,7 +112,8 @@
 					"port": "3000",
 					"path": [
 						"entradas",
-						"one"
+						"one",
+						"147f1cd1-10d4-11ee-863f-69ee5a85c209"
 					]
 				}
 			},
