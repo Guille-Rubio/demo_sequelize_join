@@ -19,27 +19,27 @@ Once the database is connected you must populate the tables by making the follow
 - GET http://localhost:3000/autores/populate-autores
 - GET http://localhost:3000/entradas/populate-entradas
 
-# What is Sequelize?
+### What is Sequelize?
 
 Sequelize is a ORM (Object-Relational Mapping) that allows to interact with the database by means of JavaScript methods. 
 
-# Setting up Sequelize
+### Setting up Sequelize
 
 In this demo we will use Postgres, however Sequelize is compatible with other SQL dialects (mySQL, mariaDB, etc.)
 
-1. Install Sequelize and Postgres packages
+### 1. Install Sequelize and Postgres packages
 ```bash
 npm i sequelize
 npm i pg
 ```
 
-2. Connect to a Database (previously created)
+### 2. Connect to a Database (previously created)
 
 - Create a file for connection 
 
 ```js
 // config/sqlConnection.js
-//
+
 const { Sequelize } = require('sequelize');
 
 //Creates a new Sequelize connection that represents the database
@@ -55,7 +55,7 @@ const connectSQL = async () => {
     }
 };
 
-//Runs the first connection
+//Runs the connection
 connectSQL();
 
 
@@ -64,11 +64,16 @@ module.exports = {
     db
 }
 ```
+More on [connections](https://sequelize.org/docs/v6/getting-started/#connecting-to-a-database)
 
-This file must be required in the entry point (`index.js`)
+This file must be required in the entry point (`index.js`);
 
 
-3. Create the schemas/models (Object Mapping). These will be our tables in our database.
+
+
+### 3. Create the schemas/models (Object Mapping). 
+
+These will be our tables in our database.
 
 ```js
 // schemas/autores.js
@@ -115,19 +120,19 @@ const Autores = db.define("Autores", {
     }
 );
 
-// This syncs our model with our data base.
+// This syncs our model with our database.
 Autores.sync();
 
 module.exports = Autores;
 
 ```
 
-More info on [model synchronization](https://sequelize.org/docs/v6/core-concepts/model-basics/#model-synchronization)
+More on [model synchronization](https://sequelize.org/docs/v6/core-concepts/model-basics/#model-synchronization).
 
 
-3. Relations / Associations
+### 3. Relations / Associations
 
-To define relations between tables you will 
+To define relations between tables.
 
 ```js
 // schemas/associations.js
@@ -143,7 +148,7 @@ Autores.hasMany(Entradas, { foreignKey: 'idAuthor' });//{foreignKey:'id_author'}
 ```
 
 
-4. Querying our database with Sequelize
+### 4. Querying our database with Sequelize
 
 ```js 
 // Controller / model file 
@@ -161,17 +166,17 @@ const crearAutor = async (req, res) => {
 More on [querying methods](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/)
 
 
-5. Eager loading (query with data associated from another table)
+### 5. Eager loading (query with data associated from another table)
 
 ```js
 // Require both schemas (requires the association in associations.js)
 
 const Autores = require('../schemas/autores');
 const Entradas = require('../schemas/entradas');
-const { populateAutores } = require('../seeds/seed');
 
 const obtenerUnAutorYTodasSusEntradas = async (req, res) => {
     try {
+        // destructures idAuthor from the request body 
         const { idAuthor } = req.body;
         // Call the appropriate method
         const query = await Autores.findAll({
