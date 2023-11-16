@@ -146,7 +146,7 @@ Autores.hasMany(Entradas, { foreignKey: 'idAuthor' });//{foreignKey:'id_author'}
 
 // this file must be required in the entry point before the connection
 ```
-
+More on [associations](https://sequelize.org/docs/v6/core-concepts/assocs/).
 
 ### 4. Querying our database with Sequelize
 
